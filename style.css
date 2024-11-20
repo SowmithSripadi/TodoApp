@@ -1,0 +1,250 @@
+:root {
+  --accent-color: #744734;
+  --font-color: #121212;
+  --checked-color: #6c6c6c;
+  --background-color-darkest: #e0e0e0;
+  --background-color-mid: #b3b3b3;
+  --background-color-low: #c0c0c0;
+}
+
+.dark-mode {
+  --accent-color: #e88d67;
+  --font-color: #e0e0e0;
+  --checked-color: #868686;
+  --background-color-darkest: #121212;
+  --background-color-mid: #222222;
+  --background-color-low: #2a2a2a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: var(--font-color);
+}
+
+/*****************************/
+/* The container and Todo app section  */
+/*****************************/
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color-darkest);
+  /* padding: 1rem; */
+  display: inline-block;
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 54rem;
+  background: var(--background-color-low);
+  margin: 20rem auto 20rem;
+  padding: 4rem 4rem 7rem;
+  border-radius: 1rem;
+}
+
+.todo-app h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--background-color-mid);
+  padding-left: 2rem;
+  border-radius: 3rem;
+  margin-bottom: 2.5rem;
+  gap: 0.5rem;
+}
+.input-text {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 1rem;
+  /* width: auto; */
+  color: var(--font-color);
+}
+.input-text:focus {
+  outline: none;
+  border: none;
+}
+
+.input-text::placeholder {
+  color: #575757;
+}
+
+.add-btn {
+  /* margin-left: 1.5rem; */
+  color: #e0e0e0;
+  background: var(--background-color-darkest);
+  border: none;
+  padding: 1.5rem 3rem;
+  border-radius: 4rem;
+  cursor: pointer;
+  color: var(--font-color);
+}
+
+.circle {
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 2px solid var(--font-color);
+  border-radius: 50%;
+
+  cursor: pointer;
+  position: relative;
+}
+
+.task-list {
+  /* display: inline-flex; */
+}
+.task-item {
+  display: inline-flex;
+  /* background-color: #fff; */
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 2rem;
+  /* cursor: pointer; */
+}
+.task-text {
+  cursor: pointer;
+}
+ul li {
+  list-style-type: none;
+  font-size: 1.7rem;
+}
+
+.checked-text {
+  color: var(--checked-color);
+  text-decoration: line-through;
+}
+
+.checked-circle {
+  border: 2px solid var(--checked-color);
+}
+
+.checked-circle::after {
+  content: "✓";
+  color: var(--accent-color);
+  font-size: 1.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.task-item {
+  position: relative;
+}
+.cross-btn {
+  position: absolute;
+  right: 0;
+  font-size: 1.9rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  text-align: center;
+  line-height: 3.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.checked-cross-btn {
+  color: var(--checked-color);
+}
+
+.cross-btn:hover {
+  background-color: var(--background-color-mid);
+  /* padding: 1rem; */
+}
+
+/* darkmode button */
+label {
+  width: 5rem;
+  height: 2rem;
+  position: relative;
+  /* margin: auto; */
+  display: block;
+  background: #ebebeb;
+  border-radius: 20rem;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: 0.3s;
+  top: 10rem;
+  left: calc(50% + 22rem);
+}
+
+label:after {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  background: linear-gradient(180deg, #e88d67, #ba7152);
+  border-radius: 18rem;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.checkb {
+  width: 0;
+  height: 0;
+  visibility: none;
+}
+.checkb:checked + label {
+  background: #242424;
+}
+
+.checkb:checked + label:after {
+  left: 45px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+/* label:active:after {
+  width: 26rem;
+} */
+
+/* media query for a mobile phone- below 464 pixels*/
+
+@media (max-width: 36rem) {
+  .todo-app {
+    max-width: 36rem;
+    padding: 4rem 3rem 6rem;
+  }
+  label {
+    left: calc(50% + 13rem);
+  }
+  .add-btn {
+    padding: 1rem 2rem;
+  }
+  .cross-btn {
+    line-height: 3.2rem;
+  }
+}
+
+@media (max-width: 29rem) {
+  .todo-app {
+    max-width: 30rem;
+    padding: 4rem 3rem 6rem;
+  }
+  label {
+    left: calc(50% + 10rem);
+  }
+  .add-btn {
+    padding: 1rem 2rem;
+  }
+  .cross-btn {
+    line-height: 3.2rem;
+  }
+}
